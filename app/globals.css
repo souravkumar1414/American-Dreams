@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #050505;
+  --ease-cinematic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(216, 180, 106, 0.08), transparent 32rem),
+    linear-gradient(180deg, #050505 0%, #0b0a08 38%, #050505 100%);
+  color: #f7f0df;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(216, 180, 106, 0.36);
+}
+
+.gold-text {
+  background: linear-gradient(95deg, #fff7db 0%, #d8b46a 42%, #fff1bd 68%, #9c6d2b 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-flow 9s var(--ease-cinematic) infinite alternate;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(18px);
+}
+
+.section-pad {
+  padding: clamp(6rem, 10vw, 10rem) clamp(1.25rem, 4vw, 4rem);
+}
+
+.hairline {
+  background: linear-gradient(90deg, transparent, rgba(216, 180, 106, 0.65), transparent);
+  height: 1px;
+}
+
+.form-field {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.055);
+  padding: 0.95rem 1rem;
+  color: #fff8e8;
+  outline: none;
+  transition: border-color 300ms var(--ease-cinematic), background 300ms var(--ease-cinematic);
+}
+
+.form-field:focus {
+  border-color: rgba(216, 180, 106, 0.75);
+  background: rgba(255, 255, 255, 0.085);
+}
+
+.form-field::placeholder {
+  color: rgba(255, 248, 232, 0.46);
+}
+
+.cta-button {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(216, 180, 106, 0.55);
+  background: linear-gradient(95deg, #d8b46a, #fff0b7 48%, #a8752f);
+  padding: 0.9rem 1.35rem;
+  color: #090704;
+  font-weight: 700;
+  transition: transform 350ms var(--ease-cinematic), box-shadow 350ms var(--ease-cinematic);
+}
+
+.cta-button:hover {
+  box-shadow: 0 0 42px rgba(216, 180, 106, 0.24);
+  transform: translateY(-2px);
+}
+
+@keyframes gold-flow {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 100% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
